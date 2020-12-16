@@ -107,6 +107,10 @@ func (s *Socks5Server) GetRequest(rw io.ReadWriter) (*Request, error) {
 }
 
 func (s *Socks5Server) ListenAndServer(h Handler) error {
+	if h == nil {
+		h = new(DefaultHandler)
+	}
+	s.Handler = h
 	ln, err := net.ListenTCP("tcp", s.Taddr)
 	if err != nil {
 		log.Printf("[ERROR]listen tcp err,err=%v\n", err)
