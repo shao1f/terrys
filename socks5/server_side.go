@@ -108,8 +108,8 @@ func (upn *UserPasswdNegotiationRsp) WriteTo(w io.Writer) (int64, error) {
 
 func NewRequestFrom(r io.Reader) (*Request, error) {
 	bb := make([]byte, 4)
-	if _, err := io.ReadFull(r, bb); err != nil {
-		log.Println("err new request from", err)
+	if n, err := io.ReadFull(r, bb); err != nil {
+		log.Println("err new request from", err, n)
 	}
 	if bb[0] != Socks5Ver {
 		log.Println("new request,err socks5 ver")

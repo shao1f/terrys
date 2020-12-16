@@ -1,7 +1,6 @@
 package client
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"net"
@@ -46,7 +45,7 @@ func (x *Client) TCPHandler(s *socks5.Socks5Server, c *net.TCPConn, r *socks5.Re
 		defer rc.Close()
 		a, addr, port, err := socks5.ParseAddress(rc.LocalAddr().String())
 		fmt.Printf("a=%v,addr=%v,port=%v,err=%v", a, addr, port, err)
-
+		return fmt.Errorf("data not exchanged")
 	}
-	return errors.New("not supposed methods")
+	return fmt.Errorf("not supposed method,cmd=%v", r.Cmd)
 }
