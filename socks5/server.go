@@ -57,7 +57,7 @@ func (s *Socks5Server) Negotiation(rw io.ReadWriter) error {
 			return err
 		}
 	}
-	rsp := NewNegotiationRsp(MethodsUserPass)
+	rsp := NewNegotiationRsp(s.Method)
 	if _, err := rsp.WriteTo(rw); err != nil {
 		return err
 	}
