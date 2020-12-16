@@ -44,6 +44,8 @@ func (x *Client) TCPHandler(s *socks5.Socks5Server, c *net.TCPConn, r *socks5.Re
 		}
 		defer rc.Close()
 		a, addr, port, err := socks5.ParseAddress(rc.LocalAddr().String())
+		// 加密
+		// 传输给远端
 		fmt.Printf("a=%v,addr=%v,port=%v,err=%v", a, addr, port, err)
 		return fmt.Errorf("data not exchanged")
 	}

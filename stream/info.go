@@ -1,0 +1,3 @@
+package stream
+
+var Info []byte = []byte{0x10, 0x09, 0x35, 0x41}
