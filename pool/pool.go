@@ -10,6 +10,6 @@ func NewBytesPool(n int) sync.Pool {
 	}
 }
 
-var BP10 = NewBytesPool(10)
+var BP12 = NewBytesPool(12)
 var BP32 = NewBytesPool(32)
 var BP2048 = NewBytesPool(2048)

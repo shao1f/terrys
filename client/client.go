@@ -15,7 +15,7 @@ type Client struct {
 	TCPTimeout    int
 }
 
-func NewClient(addr, server, password string, tcpTimeout, udpTimeout int) (*Client, error) {
+func NewClient(addr, server, password string, tcpTimeout int) (*Client, error) {
 	s5, err := socks5.NewSocks5Server("", "", addr, 0)
 	if err != nil {
 		return nil, err
